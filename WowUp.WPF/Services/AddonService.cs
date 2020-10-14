@@ -147,8 +147,6 @@ namespace WowUp.WPF.Services
 
         public async Task<List<PotentialAddon>> Search(string query, WowClientType clientType)
         {
-            var potentialAddons = new List<PotentialAddon>();
-
             var searchTasks = _providers.Select(p => p.Search(query, clientType));
             var searchResults = await Task.WhenAll(searchTasks);
 
